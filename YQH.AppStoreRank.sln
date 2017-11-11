@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YQH.AppStoreRank.Web", "YQH.AppStoreRank.Web\YQH.AppStoreRank.Web.csproj", "{7F3AC655-45D9-4F7D-A2FE-E98E721FAC7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YQH.AppStoreRank.Data", "YQH.AppStoreRank.Data\YQH.AppStoreRank.Data.csproj", "{8C11DFF1-5F50-49AE-B294-80BDFCC7FE13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YQH.AppStoreRank.BLL", "YQH.AppStoreRank.BLL\YQH.AppStoreRank.BLL.csproj", "{BB2FBAAE-F31A-4CA5-AE48-CAA22E18CEED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YQH.AppStoreRank.Common", "YQH.AppStoreRank.Common\YQH.AppStoreRank.Common.csproj", "{E6830355-31E3-4329-9964-7A8302E9C337}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YQH.AppStoreRank.WebAdmin", "YQH.AppStoreRank.WebAdmin\YQH.AppStoreRank.WebAdmin.csproj", "{84835771-9867-4608-BE37-B367DFCF598C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YQH.AppStoreRank.WinForm", "YQH.AppStoreRank.WinForm\YQH.AppStoreRank.WinForm.csproj", "{FCBFDC7F-4DC2-4933-B9FF-55A6A4CB8DE2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F3AC655-45D9-4F7D-A2FE-E98E721FAC7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F3AC655-45D9-4F7D-A2FE-E98E721FAC7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F3AC655-45D9-4F7D-A2FE-E98E721FAC7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F3AC655-45D9-4F7D-A2FE-E98E721FAC7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C11DFF1-5F50-49AE-B294-80BDFCC7FE13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C11DFF1-5F50-49AE-B294-80BDFCC7FE13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C11DFF1-5F50-49AE-B294-80BDFCC7FE13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C11DFF1-5F50-49AE-B294-80BDFCC7FE13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB2FBAAE-F31A-4CA5-AE48-CAA22E18CEED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB2FBAAE-F31A-4CA5-AE48-CAA22E18CEED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB2FBAAE-F31A-4CA5-AE48-CAA22E18CEED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB2FBAAE-F31A-4CA5-AE48-CAA22E18CEED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6830355-31E3-4329-9964-7A8302E9C337}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6830355-31E3-4329-9964-7A8302E9C337}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6830355-31E3-4329-9964-7A8302E9C337}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6830355-31E3-4329-9964-7A8302E9C337}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84835771-9867-4608-BE37-B367DFCF598C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84835771-9867-4608-BE37-B367DFCF598C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84835771-9867-4608-BE37-B367DFCF598C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84835771-9867-4608-BE37-B367DFCF598C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCBFDC7F-4DC2-4933-B9FF-55A6A4CB8DE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCBFDC7F-4DC2-4933-B9FF-55A6A4CB8DE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCBFDC7F-4DC2-4933-B9FF-55A6A4CB8DE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCBFDC7F-4DC2-4933-B9FF-55A6A4CB8DE2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

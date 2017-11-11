@@ -1,0 +1,152 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Styles.Render("~/Content/css/datepicker.min.css")
+<div ng-app="app" ng-controller="ctl">
+    <div class="container-fluid content">
+        <div class="row">
+            <div class="main">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3 class="page-header left"><i class="fa fa-history"></i> 订单管理</h3>
+                        <ol class="breadcrumb right">
+                            <li><i class="fa fa-home"></i><a href="#">管理首页</a></li>
+                            <li>订单管理</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-search">
+                                <form action="s" class="form-horizontal ">
+                                    <div class="form-group">
+                                        <div class="left fontline">日期</div>
+                                        <div class="col-sm-2">
+                                            <div class="input-group">
+                                                <input type="text" ng-model="starttime" class="form-control disabled-days" ng-calendar>
+                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            </div>
+                                        </div>
+                                        <div class="left fontline">到</div>
+                                        <div class="col-sm-2">
+                                            <div class="input-group">
+                                                <input type="text" ng-model="endtime" class="form-control disabled-days" ng-calendar>
+                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            </div>
+                                        </div>
+                                        <div class="left fontline">状态</div>
+                                        <div class="col-sm-2">
+                                            <select id="select" ng-model="status" name="select" class="form-control" size="1">
+                                                <option value="-1">全部</option>
+                                                <option value="0">已领取</option>
+                                                <option value="1">进行中</option>
+                                                <option value="2">已完成</option>
+                                                <option value="3">未完成</option>
+                                            </select>
+                                        </div>
+                                        <div class="left fontline">Appid</div>
+                                        <div class="col-sm-3">
+                                            <input type="text" ng-model="appname" class="form-control" placeholder="Appid">
+                                        </div>
+                                        <div class="left fontline">用户名</div>
+                                        <div class="col-sm-3">
+                                            <input type="text" ng-model="username" class="form-control" placeholder="用户名">
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <button type="button" class="btn btn-primary" ng-click="search()"><i class="fa fa-search"></i> 查询</button>
+                                        </div>
+                                        <div class="col-sm-1" style="padding-left:10px;">
+                                            <a href="/OrderInfo/ExportOrder?starttime={{starttime}}&endtime={{endtime}}&status={{status}}&appname={{appname}}&username={{username}}">
+                                                <button type="button" class="btn btn-primary"><i class="fa fa-search"></i>导出数据</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div><!--/col-->
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <span class="right text-primary" ng-show="ResultList.totalCount>0">总共 <span ng-bind="ResultList.totalCount"></span> 条记录，共 <span ng-bind="ResultList.pageCount"></span> 页，当前第 <span ng-bind="pageIndex"></span> 页</span>
+                                <span class="right text-primary" ng-show="ResultList.totalCount<=0">未搜索到任何记录</span>
+                            </div>
+                            <div class="panel-body">
+                                <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                                    <thead>
+                                        <tr>
+                                            <th width="5%">序号</th>
+                                            <th width="9%">AppID</th>
+                                            <th width="10%">应用名称</th>
+                                            <th width="6%">任务类型</th>
+                                            <th width="10%">用户名</th>
+                                            <th width="7%">IDFA</th>
+                                            <th width="7%">IP地址</th>
+                                            <th width="5%">金额</th>
+                                            <th width="5%">状态</th>
+                                            <th width="6%">截图</th>
+                                            <th width="6%">昵称</th>
+                                            <th width="8%">任务开始时间</th>
+                                            <th width="8%">任务完成时间</th>
+                                            <th width="8%">订单创建时间</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="item in ResultList.message">
+                                            <td class="now" ng-bind="$index+1"> </td>
+                                            <td ng-bind="item.appid"></td>
+                                            <td ng-bind="item.appname"></td>
+                                            <td ng-bind="item.tasktype"></td>
+                                            <td ng-bind="item.username"></td>
+                                            <td ng-bind="item.idfa"></td>
+                                            <td ng-bind="item.ipaddress"></td>
+                                            <td ng-bind="item.money | currency:'￥'"></td>
+                                            <td>
+                                                <span ng-show="item.status==='已完成'" class="green">已完成</span>
+                                                <span ng-show="item.status==='进行中'" class="blue">进行中</span>
+                                                <span ng-show="item.status==='未完成'" class="red">未完成</span>
+                                                <span ng-show="item.status==='已领取'">已领取</span>
+                                            </td>
+                                            <td><a target="_blank" ng-href="{{item.evidence.pic}}"><img width="100" ng-src="{{item.evidence.pic}}" /></a></td>
+                                            <td ng-bind="item.evidence.nickname"></td>
+                                            <td ng-bind="item.starttime|date:'yyyy-MM-dd HH:mm:ss'"></td>
+                                            <td ng-bind="item.endtime|date:'yyyy-MM-dd HH:mm:ss'"></td>
+                                            <td ng-bind="item.createtime|date:'yyyy-MM-dd HH:mm:ss'"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="pagination page">
+                                    <paging page-count="ResultList.pageCount" page-change="pageChange"></paging>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--/col-->
+                </div>
+            </div>
+            <!-- end: Content -->
+        </div><!--/container-->
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/js/jquery.hDialog.js"></script>
+    <script src="~/Scripts/paging.js"></script>
+    <script src="~/Scripts/Controllers/OrderInfo/list.js"></script>
+    <script>
+
+        $('.now').hDialog({
+            box: '#HBox08',
+            width: 320,
+            height: 370,
+            closeBg: 'transparent',
+            closecol: '#fff'
+        });
+        $(document).on('click', '.now', function () {
+            alert('1');
+        });
+        //$('.now').click(function() {
+        //    alert(1);
+        //});
+    </script>
+}
+

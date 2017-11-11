@@ -1,0 +1,226 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    ul, li {
+        list-style: none;
+    }
+
+    .wrapper {
+        width: 50%;
+        margin: 50px auto;
+        border: 2px solid red;
+        height: 300px;
+        overflow: scroll;
+    }
+
+    #picker:active {
+        background: blue;
+    }
+</style>
+<link href="~/Content/page-bar.css" rel="stylesheet" />
+<link href="~/Scripts/lib/webuploader-0.1.5/webuploader.css" rel="stylesheet" />
+<h2>Index</h2>
+<button id="btn1" data-type="1">已完成</button>
+<button id="btn2" data-type="2">未完成</button>
+@*<div class="wrapper" >
+        <ul id="myList">
+            <li>12313123213</li>
+            <li>12313123213</li>
+
+
+        </ul>
+        <p id="loading">
+
+        </p>
+    </div>*@
+<div id="pager">
+
+</div>
+
+<div id="upload-wrapper">
+    <div id="file-list-wrapper">
+        <ul id="file-list "></ul>
+    </div>
+    <div class="clearfix">
+       
+    </div>
+    <div id="picker">选择文件</div>
+    <button id="upload-btn" class="btn btn-default">开始上传</button>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery.scrollLoad-1.2.0.js"></script>
+    <script src="~/Scripts/jquery.pagebar-1.2.0.js"></script>
+    <script src="~/Scripts/lib/webuploader-0.1.5/webuploader.js"></script>
+    <script>
+        var uploader = WebUploader.create({
+
+            // 文件接收服务端。
+            server: '/Home/UploadFile',
+
+            // 选择文件的按钮。可选。
+            // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+            pick: '#picker',
+
+            // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
+            resize: false
+        });
+
+        var $list = $('#file-list');
+
+        uploader.on('fileQueued', function (file) {
+
+            var $li = $(
+                '<div id="' + file.id + '" class="file-item thumbnail">' +
+                    '<img class="img-thumbnail">' +
+                    //'<div class="info">' + file.name + '</div>' +
+                    '<p class="state">等待上传...</p><button data-id="'+file.id+'" class="file-remove">移除</button>' +
+                '</div>'
+                ),
+            $img = $li.find('img');
+
+
+            // $list为容器jQuery实例
+            $list.append($li);
+
+            // 创建缩略图
+            // 如果为非图片文件，可以不用调用此方法。
+            // thumbnailWidth x thumbnailHeight 为 100 x 100
+            uploader.makeThumb(file, function (error, src) {
+                if (error) {
+                    $img.replaceWith('<span>不能预览</span>');
+                    return;
+                }
+
+                $img.attr('src', src);
+            }, 150, 150);
+
+          //  $list.append('<div id="' + file.id + '" class="item">' +
+          //      '<h4 class="info">' + file.name + '</h4>' +
+          //      '<p class="state">等待上传...</p>' +
+          //  '</div>');
+
+          //var    $img = $li.find('img');
+          //  // thumbnailWidth x thumbnailHeight 为 100 x 100
+          //  uploader.makeThumb(file, function (error, src) {
+          //      if (error) {
+          //          $img.replaceWith('<span>不能预览</span>');
+          //          return;
+          //      }
+
+          //      $img.attr('src', src);
+          //  }, thumbnailWidth, thumbnailHeight);
+        });
+
+        uploader.on('uploadProgress', function (file, percentage) {
+          
+                var $li = $('#' + file.id),
+                              $percent = $li.find('.progress .progress-bar');
+
+                // 避免重复创建
+                if (!$percent.length) {
+                    $percent = $('<div class="progress progress-striped active">' +
+                      '<div class="progress-bar" role="progressbar" style="width: 0%">' +
+                      '</div>' +
+                    '</div>').appendTo($li).find('.progress-bar');
+                }
+
+                $li.find('p.state').text('上传中');
+
+                $percent.css('width', percentage * 100 + '%');
+         
+          
+        });
+        
+        uploader.on('uploadSuccess', function (file) {
+            $('#' + file.id).find('p.state').text('上传成功');
+        });
+
+        uploader.on('uploadError', function (file) {
+            $('#' + file.id).find('p.state').text('上传出错');
+        });
+
+        uploader.on('uploadComplete', function (file) {
+            $('#' + file.id).find('.progress').fadeOut();
+        });
+        
+
+
+        $('#upload-btn').click(function() {
+            uploader.upload();
+        });
+
+        $('#file-list').on('click', '.file-remove', function() {
+            var id = $(this).data('id');
+            uploader.removeFile(uploader.getFiles()[0], true);
+            uploader.reset();
+             console.log(uploader.getFiles());
+        });
+       
+
+
+
+
+
+
+
+
+
+
+
+
+        var pager = $('#pager').pagebar({
+            displayPageCount: 5,
+            isWithSkipBtn: true,
+            getTotalPages: function (data) {
+                return data.result.pageCount;
+            },
+            nextPage: function (data, pageIndex) {
+                console.log(data, pageIndex);
+            } //点击当前页面回调函数，传入当前index
+        });
+
+        type = 1;
+        $('#btn1,#btn2').click(function () {
+            var $this = $(this);
+            type = parseInt($this.data('type'));
+
+            //scroll.Options().param.type = type;
+            //console.log(scroll.Options().param);
+        });
+        //var obj = {
+        //    type: type,
+        //    name: '11'
+        //}
+
+        //function show() {
+        //    console.log(obj);
+        //}
+
+
+
+        var scroll = $("#myList").scrollLoad({
+            url: '/data.json?pageIndex={{pageIndex}}',
+            param: {
+                type: type,
+                state: 1
+            },
+            //scrollContainer:'.wrapper',
+            loading: "#loading",
+            nextPage: function (data, $wrapper, currentPage) {
+                var list = data.result.list;
+                for (var i = 0; i < list.length; i++) {
+                    var item = list[i];
+                    var $item = $('<li>' + item.name + '</li>')
+                    $wrapper.append($item);
+                }
+
+            }
+        })
+        console.log(scroll.Options());
+
+    </script>
+
+}

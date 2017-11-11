@@ -1,0 +1,7 @@
+packages
+*.suo
+*.user
+log
+WinForm
+/.vs/config/applicationhost.config
+.vs/

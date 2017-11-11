@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8C11DFF1-5F50-49AE-B294-80BDFCC7FE13}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YQH.AppStoreRank.Data</RootNamespace>
+    <AssemblyName>YQH.AppStoreRank.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppStoreRankContext.cs" />
+    <Compile Include="BaseRepository.cs" />
+    <Compile Include="DbContextFactory.cs" />
+    <Compile Include="EnumExtension.cs" />
+    <Compile Include="Enums\AccountType.cs" />
+    <Compile Include="Enums\OrderStatus.cs" />
+    <Compile Include="Enums\TaskType.cs" />
+    <Compile Include="Enums\WithdrawStatus.cs" />
+    <Compile Include="ErrorMsgException.cs" />
+    <Compile Include="IBaseRepository.cs" />
+    <Compile Include="Migrations\201707190140371_InitialCreate.cs" />
+    <Compile Include="Migrations\201707190140371_InitialCreate.Designer.cs">
+      <DependentUpon>201707190140371_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707190400171_EditTaskInfo.cs" />
+    <Compile Include="Migrations\201707190400171_EditTaskInfo.Designer.cs">
+      <DependentUpon>201707190400171_EditTaskInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707200154558_AddRelations.cs" />
+    <Compile Include="Migrations\201707200154558_AddRelations.Designer.cs">
+      <DependentUpon>201707200154558_AddRelations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707200157087_AddRelations002.cs" />
+    <Compile Include="Migrations\201707200157087_AddRelations002.Designer.cs">
+      <DependentUpon>201707200157087_AddRelations002.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707200201182_AddRelations003.cs" />
+    <Compile Include="Migrations\201707200201182_AddRelations003.Designer.cs">
+      <DependentUpon>201707200201182_AddRelations003.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707200207364_EditOrderAttr.cs" />
+    <Compile Include="Migrations\201707200207364_EditOrderAttr.Designer.cs">
+      <DependentUpon>201707200207364_EditOrderAttr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707200226192_AddForeignKey.cs" />
+    <Compile Include="Migrations\201707200226192_AddForeignKey.Designer.cs">
+      <DependentUpon>201707200226192_AddForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707200344496_AccountRelation.cs" />
+    <Compile Include="Migrations\201707200344496_AccountRelation.Designer.cs">
+      <DependentUpon>201707200344496_AccountRelation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707200345513_AccountRelation1.cs" />
+    <Compile Include="Migrations\201707200345513_AccountRelation1.Designer.cs">
+      <DependentUpon>201707200345513_AccountRelation1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707200405265_EditWithdrawAddField.cs" />
+    <Compile Include="Migrations\201707200405265_EditWithdrawAddField.Designer.cs">
+      <DependentUpon>201707200405265_EditWithdrawAddField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707200956314_AddMoneyFieldToOrderInfo.cs" />
+    <Compile Include="Migrations\201707200956314_AddMoneyFieldToOrderInfo.Designer.cs">
+      <DependentUpon>201707200956314_AddMoneyFieldToOrderInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707210213105_AddFieldOrderInfo.cs" />
+    <Compile Include="Migrations\201707210213105_AddFieldOrderInfo.Designer.cs">
+      <DependentUpon>201707210213105_AddFieldOrderInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708070709230_AddCommentTable.cs" />
+    <Compile Include="Migrations\201708070709230_AddCommentTable.Designer.cs">
+      <DependentUpon>201708070709230_AddCommentTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708090721094_AddCreateTimeFiledToCommentTable.cs" />
+    <Compile Include="Migrations\201708090721094_AddCreateTimeFiledToCommentTable.Designer.cs">
+      <DependentUpon>201708090721094_AddCreateTimeFiledToCommentTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708210213452_AddRowVersionOnAmount.cs" />
+    <Compile Include="Migrations\201708210213452_AddRowVersionOnAmount.Designer.cs">
+      <DependentUpon>201708210213452_AddRowVersionOnAmount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708210228154_RemoveRowVersionAndAddConcurrencyCheck.cs" />
+    <Compile Include="Migrations\201708210228154_RemoveRowVersionAndAddConcurrencyCheck.Designer.cs">
+      <DependentUpon>201708210228154_RemoveRowVersionAndAddConcurrencyCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709120635216_AddTableRecord.cs" />
+    <Compile Include="Migrations\201709120635216_AddTableRecord.Designer.cs">
+      <DependentUpon>201709120635216_AddTableRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709120716534_AddColumnRecord.cs" />
+    <Compile Include="Migrations\201709120716534_AddColumnRecord.Designer.cs">
+      <DependentUpon>201709120716534_AddColumnRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709120734545_AddColumnRecord002.cs" />
+    <Compile Include="Migrations\201709120734545_AddColumnRecord002.Designer.cs">
+      <DependentUpon>201709120734545_AddColumnRecord002.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ApplicationInfo.cs" />
+    <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\OperationRecord.cs" />
+    <Compile Include="Models\OrderInfo.cs" />
+    <Compile Include="Models\TaskInfo.cs" />
+    <Compile Include="Models\WithdrawRecord.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YQH.AppStoreRank.Common\YQH.AppStoreRank.Common.csproj">
+      <Project>{e6830355-31e3-4329-9964-7a8302e9c337}</Project>
+      <Name>YQH.AppStoreRank.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201707190140371_InitialCreate.resx">
+      <DependentUpon>201707190140371_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707190400171_EditTaskInfo.resx">
+      <DependentUpon>201707190400171_EditTaskInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707200154558_AddRelations.resx">
+      <DependentUpon>201707200154558_AddRelations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707200157087_AddRelations002.resx">
+      <DependentUpon>201707200157087_AddRelations002.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707200201182_AddRelations003.resx">
+      <DependentUpon>201707200201182_AddRelations003.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707200207364_EditOrderAttr.resx">
+      <DependentUpon>201707200207364_EditOrderAttr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707200226192_AddForeignKey.resx">
+      <DependentUpon>201707200226192_AddForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707200344496_AccountRelation.resx">
+      <DependentUpon>201707200344496_AccountRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707200345513_AccountRelation1.resx">
+      <DependentUpon>201707200345513_AccountRelation1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707200405265_EditWithdrawAddField.resx">
+      <DependentUpon>201707200405265_EditWithdrawAddField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707200956314_AddMoneyFieldToOrderInfo.resx">
+      <DependentUpon>201707200956314_AddMoneyFieldToOrderInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707210213105_AddFieldOrderInfo.resx">
+      <DependentUpon>201707210213105_AddFieldOrderInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708070709230_AddCommentTable.resx">
+      <DependentUpon>201708070709230_AddCommentTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708090721094_AddCreateTimeFiledToCommentTable.resx">
+      <DependentUpon>201708090721094_AddCreateTimeFiledToCommentTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708210213452_AddRowVersionOnAmount.resx">
+      <DependentUpon>201708210213452_AddRowVersionOnAmount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708210228154_RemoveRowVersionAndAddConcurrencyCheck.resx">
+      <DependentUpon>201708210228154_RemoveRowVersionAndAddConcurrencyCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709120635216_AddTableRecord.resx">
+      <DependentUpon>201709120635216_AddTableRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709120716534_AddColumnRecord.resx">
+      <DependentUpon>201709120716534_AddColumnRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709120734545_AddColumnRecord002.resx">
+      <DependentUpon>201709120734545_AddColumnRecord002.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

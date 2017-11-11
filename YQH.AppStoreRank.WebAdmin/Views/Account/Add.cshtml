@@ -1,0 +1,117 @@
+﻿@using YQH.AppStoreRank.BLL.Auth
+@using YQH.AppStoreRank.Data.Enums
+
+@{
+    ViewBag.Title = "添加用户";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section styles{
+    <style>
+        .w5c-error {
+            color: red;
+        }
+
+        select.error {
+            border-color: red !important;
+        }
+    </style>
+
+}
+<!-- start: Content -->
+<div class="main" ng-app="app" ng-controller="ctrl">
+    @{
+        var userType = (AccountType)UserAuth.Current.GetValue("Type");
+    }
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="page-header left"><i class="fa fa-file-text"></i> 添加用户</h3>
+            <ol class="breadcrumb right">
+                <li><i class="fa fa-home"></i><a href="/Home/Welcome">管理首页</a></li>
+                <li>添加用户</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="col-md-10">
+                        <form name="curTourForm" class="form-horizontal margin20" w5c-form-validate="" novalidate>
+
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">用户名</label>
+                                    <div class="col-md-3">
+                                        <input type="text" name="userName" class="form-control" ng-model="curUser.userName" ng-disabled="isUpdate" placeholder="用户名" required ng-minlength="6" ng-maxlength="20" maxlength="20" >
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group"  ng-show="!isUpdate">
+                                <div class="form-group"  >
+                                    <label class="col-md-3 control-label">密码</label>
+                                    <div class="col-md-3">
+                                        <input type="text" name="password" class="form-control" ng-model="curUser.password"placeholder="密码" required ng-minlength="6" ng-maxlength="100" maxlength="100">
+                                    </div>
+                                    <div class="col-md-1">
+                                        <button class="btn btn-success" ng-click="setRandPwd()">随机生成</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">手机号</label>
+                                    <div class="col-md-3">
+                                        <input type="text" name="phone" ng-pattern="/^(((13[0-9]{1})|(15[0-9]{1})|(17[0-9]{1})|(18[0-9]{1}))+\d{8})$/" class="form-control" ng-model="curUser.phone" placeholder="手机号" required maxlength="11">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">提现密码</label>
+                                    <div class="col-md-3">
+                                        <input type="text" name="withdrawPwd"  class="form-control" ng-model="curUser.withdrawPwd" placeholder="提现密码" required ng-minlength="6" ng-maxlength="20" maxlength="20">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">类型</label>
+                                    <div class="col-md-3">
+                                        <select name="province" class="form-control " ng-model="curUser.type" ng-options="p.key as p.description for p in accountType"  required>
+                                            <option value="" selected>用户类型(必选)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label"></label>
+                                <div class="col-md-9">
+                                    <button class="btn btn-success col-md-3" w5c-form-submit="save()">
+                                        <i class="fa fa-plus "></i>
+                                        <em ng-show="!isUpdate">添 加</em>
+                                        <em ng-show="isUpdate">保 存</em>
+                                    </button>
+                                    @*<button type="button" class="btn btn-danger col-md-3" ng-click="cancel()" data-toggle="modal" data-target="#collectArticle"><i class="fa fa-ban"></i>采集文章</button>*@
+                                </div>
+                            </div>
+                            <br>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<!-- end: Content -->
+@section scripts{
+    <script src="~/Scripts/w5cValidator.js"></script>
+    <script src="~/Scripts/ng-file-upload.min.js"></script>
+    <script src="~/Scripts/Controllers/Account/add.js"></script>
+   
+}

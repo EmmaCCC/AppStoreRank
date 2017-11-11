@@ -1,0 +1,7 @@
+﻿{
+  "activateTime": 3,
+  "activateFailureTime": 30,
+  "commentTime": 3,
+  "commentFailureTime": 30,
+  "retainedFailureTime": "20:00"
+}

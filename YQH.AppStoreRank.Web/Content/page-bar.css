@@ -1,0 +1,87 @@
+﻿.pagebar-wrapper {
+    text-align: center;
+    margin: 5px auto;
+}
+
+.pagebar-wrapper a,
+.pagebar-nth-current,
+.pagebar-skip-page {
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.pagebar-pages:active {
+    background: blue;
+}
+
+
+.pagebar-pages,
+.pagebar-dot,
+.pagebar-first,
+.pagebar-last,
+.pagebar-pre,
+.pagebar-next {
+    margin-left: 5px;
+    border: 1px solid #d8cbcb;
+    text-align: center;
+    padding: 5px 8px;
+    color: #808080;
+    font-family: "微软雅黑";
+    display: inline-block;
+    transition: all 0.1s ease-in-out 0s;
+}
+
+.pagebar-pages,
+.pagebar-raw {
+    width: 40px;
+}
+
+
+.pagebar-raw {
+    margin-left: 5px;
+    font-size: 13px;
+    font-family: "微软雅黑";
+    text-decoration: none;
+    color: red;
+    transition: all 0.1s ease-in-out 0s;
+    width: 40px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    display: inline-block;
+}
+
+.pagebar-pages:hover,
+.pagebar-first:hover,
+.pagebar-last:hover,
+.pagebar-pre:hover,
+.pagebar-next:hover,
+.pagebar-dot:hover,
+.pagebar-skip-page .input-btn-go:hover {
+    color: white;
+    background-color: #f22828;
+    cursor: pointer;
+    border-color: #f22828;
+}
+
+.pagebar-nth-current, .pagebar-skip-page {
+    margin-left: 10px;
+    color: #666;
+    letter-spacing: 1px;
+}
+
+
+.pagebar-skip-page .input-page-index {
+    width: 30px;
+    height: 27px;
+    margin: auto 5px;
+    outline: none;
+}
+
+.pagebar-skip-page .input-btn-go {
+    height: 27px;
+    outline: none;
+    border: 1px solid #d8cbcb;
+    color: #808080;
+    background: #fff;
+}

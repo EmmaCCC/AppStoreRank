@@ -1,0 +1,147 @@
+﻿@{
+    ViewBag.Title = "后台登录";
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>管理中心</title>
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+    <!-- Css files -->
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/css/style.min.css" rel="stylesheet">
+    <link href="~/Content/css/add-ons.min.css" rel="stylesheet">
+    <link href="~/Content/css/datepicker.min.css" rel="stylesheet">
+    <link href="~/Scripts/lib/NProgress/nprogress.css" rel="stylesheet" />
+    <style>
+        .ng-hide:not(.ng-hide-animate) {
+            display: none !important;
+        }
+    </style>
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<body ng-app="app" ng-controller="loginCtrl">
+    <div class="container-fluid content">
+        <div class="row">
+            <div id="content" class="col-sm-12 full">
+                <div class="row">
+                    <div class="login-box">
+
+                        <div class="logoface"><img src="/Content/Images/logo.jpg" alt="" /></div>
+
+                        <div class="text-with-hr">
+                            <span>管理员登陆</span>
+                        </div>
+                        <p class="text-center red" ng-show="errMsg" ng-bind="errMsg"></p>
+                        <form ng-submit="login(loginform.$valid)" class="form-horizontal login">
+
+                            <fieldset class="col-sm-12">
+                                <div class="form-group">
+                                    <div class="controls row">
+                                        <div class="input-group col-sm-12">
+                                            <input type="text" class="form-control" id="username" ng-model="model.username" placeholder="用户名" required autofocus />
+                                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="controls row">
+                                        <div class="input-group col-sm-12">
+                                            <input type="password" class="form-control" id="password" ng-model="model.password" placeholder="密码" required />
+                                            <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @*<div class="confirm">
+                                        <input type="checkbox" name="remember" />
+                                        <label for="remember">记住我</label>
+                                    </div>*@
+
+                                <div class="row">
+
+                                    <button type="submit" ng-disabled="isLogining" class="btn btn-lg btn-primary col-xs-12" style="border-radius: 2px;">
+                                        <span class="ng-hide" ng-show="isLogining">登录中...</span>
+                                        <span class="ng-hide" ng-show="!isLogining">登录</span>
+                                    </button>
+
+                                </div>
+
+                            </fieldset>
+
+                        </form>
+
+                        <div class="clearfix"></div>
+
+                    </div>
+                </div><!--/row-->
+
+            </div>
+
+        </div><!--/row-->
+
+
+
+    </div>
+    <!-- start: JavaScript-->
+    <!--[if !IE]>-->
+
+
+    <script src="/Scripts/jquery-2.1.1.min.js"></script>
+
+
+    <!--<![endif]-->
+    <!--[if IE]>
+
+        <script src="js/jquery-1.11.1.min.js"></script>
+
+    <![endif]-->
+    <!--[if !IE]>-->
+
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='/Scripts/jquery-2.1.1.min.js'>" + "<" + "/script>");
+    </script>
+
+    <!--<![endif]-->
+    <!--[if IE]>
+
+        <script type="text/javascript">
+        window.jQuery || document.write("<script src='js/jquery-1.11.1.min.js'>"+"<"+"/script>");
+        </script>
+
+    <![endif]-->
+
+
+    <script src="~/Scripts/lib/NProgress/nprogress.js"></script>
+   @Html.Partial("Scripts/_Angular")
+    <script src="/Scripts/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+
+    <script src="~/Scripts/Controllers/Account/login.js"></script>
+
+    <!-- page scripts -->
+    <script src="/Scripts/plugins/jquery-ui/js/jquery-ui-1.10.4.min.js"></script>
+    <script src="/Scripts/plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+    <script src="/Scripts/plugins/moment/moment.min.js"></script>
+
+    <!--[if lte IE 8]>
+        <script language="javascript" type="text/javascript" src="plugins/excanvas/excanvas.min.js"></script>
+    <![endif]-->
+    <!-- end: JavaScript-->
+
+</body>
+</html>
