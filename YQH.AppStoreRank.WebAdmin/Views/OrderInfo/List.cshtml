@@ -46,11 +46,11 @@
                                             </select>
                                         </div>
                                         <div class="left fontline">Appid</div>
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-1">
                                             <input type="text" ng-model="appname" class="form-control" placeholder="Appid">
                                         </div>
                                         <div class="left fontline">用户名</div>
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-1">
                                             <input type="text" ng-model="username" class="form-control" placeholder="用户名">
                                         </div>
                                         <div class="col-sm-1">
@@ -90,6 +90,7 @@
                                             <th width="8%">任务开始时间</th>
                                             <th width="8%">任务完成时间</th>
                                             <th width="8%">订单创建时间</th>
+                                            <th width="8%">操作</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -113,6 +114,7 @@
                                             <td ng-bind="item.starttime|date:'yyyy-MM-dd HH:mm:ss'"></td>
                                             <td ng-bind="item.endtime|date:'yyyy-MM-dd HH:mm:ss'"></td>
                                             <td ng-bind="item.createtime|date:'yyyy-MM-dd HH:mm:ss'"></td>
+                                            <td ><button type="button" class="btn btn-primary" ng-click="del()"><i class="fa fa-search"></i>删除</button></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -129,21 +131,15 @@
     </div>
 </div>
 @section scripts{
-    <script src="~/Scripts/js/jquery.hDialog.js"></script>
     <script src="~/Scripts/paging.js"></script>
     <script src="~/Scripts/Controllers/OrderInfo/list.js"></script>
     <script>
 
-        $('.now').hDialog({
-            box: '#HBox08',
-            width: 320,
-            height: 370,
-            closeBg: 'transparent',
-            closecol: '#fff'
-        });
+     
         $(document).on('click', '.now', function () {
             alert('1');
         });
+   
         //$('.now').click(function() {
         //    alert(1);
         //});

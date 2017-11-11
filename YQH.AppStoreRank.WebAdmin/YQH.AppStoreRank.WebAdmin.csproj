@@ -206,6 +206,15 @@
     <Content Include="Scripts\lib\datatimepicker\bootstrap-datetimepicker.min.css" />
     <Content Include="Scripts\lib\datatimepicker\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\lib\datatimepicker\bootstrap-datetimepicker.zh-CN.js" />
+    <Content Include="Scripts\lib\layer\layer.js" />
+    <Content Include="Scripts\lib\layer\mobile\layer.js" />
+    <Content Include="Scripts\lib\layer\mobile\need\layer.css" />
+    <Content Include="Scripts\lib\layer\theme\default\icon-ext.png" />
+    <Content Include="Scripts\lib\layer\theme\default\icon.png" />
+    <Content Include="Scripts\lib\layer\theme\default\layer.css" />
+    <Content Include="Scripts\lib\layer\theme\default\loading-0.gif" />
+    <Content Include="Scripts\lib\layer\theme\default\loading-1.gif" />
+    <Content Include="Scripts\lib\layer\theme\default\loading-2.gif" />
     <Content Include="Scripts\lib\NProgress\nprogress.css" />
     <Content Include="Scripts\lib\NProgress\nprogress.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
@@ -535,7 +544,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Shared\Scripts\_Angular.cshtml" />
+    <Content Include="Views\Shared\Scripts\_Common.cshtml" />
     <Content Include="Scripts\plugins\.DS_Store" />
     <Content Include="Scripts\plugins\easypiechart\.DS_Store" />
     <Content Include="Scripts\plugins\ueditor\net\config.json" />
@@ -551,6 +560,7 @@
     <Content Include="Views\Account\Add.cshtml" />
     <Content Include="Views\OrderInfo\List.cshtml" />
     <Content Include="Views\Account\Operation.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\YQH.AppStoreRank.BLL\YQH.AppStoreRank.BLL.csproj">

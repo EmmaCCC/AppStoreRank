@@ -3,18 +3,20 @@
 function HttpInterceptor($q) {
     return {
         request: function (config) {
-            console.log('request');
+            NProgress.start();
             return config;
         },
         requestError: function (err) {
             return $q.reject(err);
         },
         response: function (res) {
-            console.log('response');
+            NProgress.done();
             console.log(res.data);
             return res;
         },
         responseError: function (err) {
+            NProgress.done();
+
             console.log('err',err);
             if (-1 === err.status) {
                

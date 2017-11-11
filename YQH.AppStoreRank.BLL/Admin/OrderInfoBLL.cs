@@ -116,14 +116,7 @@ namespace YQH.AppStoreRank.BLL.Admin
                 Stopwatch sw = new Stopwatch();
                 sw.Start();
                 var list1 = pageQuery.ToList();
-                sw.Stop();
-                int sec1 = sw.Elapsed.Milliseconds;
-
-
-                sw.Reset();
-                sw.Restart();
-             
-                sw.Start();
+              
 
                 var list = list1.Select(item => new
                 {
