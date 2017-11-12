@@ -39,5 +39,6 @@ namespace YQH.AppStoreRank.Data
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
         }
 
+      
     }
 }

@@ -18,6 +18,7 @@ namespace YQH.AppStoreRank.Web.Controllers.Api.User
         {
             try
             {
+                var modelState = ModelState.IsValid;
                 var registerlogin = RegisterLoginFactory.GetRegisterLogin(RegisterLoginType.Phone);
                 var user = registerlogin.Login(param);
                 var token = UserAuth.GetToken(user);

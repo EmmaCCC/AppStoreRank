@@ -45,7 +45,7 @@ angular.module('app', ['Service', 'UI.Paging', 'UI'])
 
     $scope.setDisabled = function (id, isDisabled, type) {
         if (type === 0 && isDisabled) {
-            if (!confirm('该账号是管理员账号，确定禁用?')) {
+            if (layer.confirm('该账号是管理员账号，确定禁用?')) {
                 return;
             }
         }
@@ -65,13 +65,17 @@ angular.module('app', ['Service', 'UI.Paging', 'UI'])
     function init() {
         as.getPageList($scope.pageIndex, $scope.pageSize, $scope.type, $scope.name)
            .success(function (data) {
-               if (data.status === 0) {
+               processAjax(data, function (data) {
                    $scope.resultList = data.result.list;
                    $scope.totalCount = data.result.totalCount;
                    $scope.pageCount = data.result.pageCount;
-               } else {
-                   alert(data.message);
-               }
+               });
+
+               //if (data.status === 0) {
+
+               //} else {
+               //    alert(data.message);
+               //}
            });
     }
 

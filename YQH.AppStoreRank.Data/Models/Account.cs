@@ -23,7 +23,7 @@ namespace YQH.AppStoreRank.Data.Models
         /// 用户名
         /// </summary>
         [Required]
-        [MaxLength(50)]
+        [MaxLength(10)]
         public string UserName { get; set; }
 
         /// <summary>

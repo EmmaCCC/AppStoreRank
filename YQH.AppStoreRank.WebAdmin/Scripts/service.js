@@ -1,4 +1,34 @@
 ﻿
+function processAjax(data, success, fail) {
+    if (data.status === 0) {
+        if (success) {
+            success(data);
+        }
+    } else {
+        if (fail) {
+            fail(data);
+        } else {
+            layer.msg(data.message, { icon: 2 });
+        }
+    }
+}
+layer.error = function (msg) {
+    //return layer.msg(msg, { icon: 2 });
+    return  layer.msg(msg||'操作失败', {
+       title:' ',
+        icon: 2,
+        skin: 'layer-title-error'
+    });
+}
+
+layer.success = function (msg) {
+    return layer.msg(msg ||'操作成功' , {
+        title: ' ',
+        icon:1,
+        skin: 'layer-title-success'
+    });;
+
+}
 
 function HttpInterceptor($q) {
     return {
@@ -17,13 +47,13 @@ function HttpInterceptor($q) {
         responseError: function (err) {
             NProgress.done();
 
-            console.log('err',err);
+            console.log('err', err);
             if (-1 === err.status) {
-               
+
             } else if (500 === err.status) {
                 alert('错误');
             } else if (501 === err.status) {
-              
+
             }
             return $q.reject(err);
         }

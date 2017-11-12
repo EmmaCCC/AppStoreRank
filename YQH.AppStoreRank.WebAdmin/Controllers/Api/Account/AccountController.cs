@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Web.Http;
 using YQH.AppStoreRank.BLL.Admin;
 using YQH.AppStoreRank.BLL.RegisterLogin;
@@ -6,6 +7,7 @@ using YQH.AppStoreRank.BLL.RegisterLogin.Param;
 using YQH.AppStoreRank.Data;
 using YQH.AppStoreRank.Data.Enums;
 using YQH.AppStoreRank.Data.Models;
+using YQH.AppStoreRank.WebAdmin.App_Start;
 
 namespace YQH.AppStoreRank.WebAdmin.Controllers.Api.Account
 {
@@ -24,6 +26,7 @@ namespace YQH.AppStoreRank.WebAdmin.Controllers.Api.Account
         /// <returns></returns>
 
         [ApiAuth(Roles = new AccountType[] { AccountType.管理员 })]
+        [WebApiExceptionFilter]
         public dynamic Get(int pageIndex, int pageSize, AccountType type, string name)
         {
             try
@@ -37,10 +40,10 @@ namespace YQH.AppStoreRank.WebAdmin.Controllers.Api.Account
             {
                 return new { status = ex.Status, message = ex.Message };
             }
-            catch (Exception ex)
-            {
-                return new { status = 500, message = ex.Message };
-            }
+            //catch (Exception ex)
+            //{
+            //    return new { status = 500, message = ex.Message };
+            //}
 
         }
 
@@ -54,6 +57,7 @@ namespace YQH.AppStoreRank.WebAdmin.Controllers.Api.Account
         {
             try
             {
+                var s = this.ModelState;
                 AccountBLL bll = new AccountBLL();
                 var data = bll.GetAccountInfo(id);
                 return new { status = 0, result = data };
@@ -80,6 +84,11 @@ namespace YQH.AppStoreRank.WebAdmin.Controllers.Api.Account
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    string msg = ModelState.Values.First().Errors[0].ErrorMessage;
+                    return new {status = 1, message = msg};
+                }
                 AccountBLL bll = new AccountBLL();
                 bll.Save(account);
                 return new { status = 0 };
