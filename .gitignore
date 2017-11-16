@@ -2,6 +2,6 @@ packages
 *.suo
 *.user
 log
-WinForm
+*.WinForm
 /.vs/config/applicationhost.config
 .vs/

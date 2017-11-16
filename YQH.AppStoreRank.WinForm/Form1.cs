@@ -71,7 +71,7 @@ namespace YQH.AppStoreRank.WinForm
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 request.ContentType = "application/json";
                 request.Method = "Post";
-
+                //123213
                 string postdata = "{\"orderId\":\"11764892-840F-4970-AF21-ADB088063615\",\"IDFA\":\"11\",\"id\":\"" + id + "\"}";
                 byte[] bytes = Encoding.ASCII.GetBytes(postdata);
                 request.ContentLength = bytes.Length;
