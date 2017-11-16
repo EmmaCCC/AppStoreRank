@@ -84,6 +84,7 @@ namespace YQH.AppStoreRank.Data
         {
             IQueryable<T> temp = _dbContext.Set<T>().Where(whereLambda).AsQueryable();
             totalCount = temp.Count();
+            pageSize = Math.Min(pageSize, 30);
             pageCount = (int)Math.Ceiling((double)totalCount / pageSize);
 
             if (isAsc)
@@ -106,6 +107,7 @@ namespace YQH.AppStoreRank.Data
         {
             IQueryable<T> temp = query;
             totalCount = temp.Count();
+            pageSize = Math.Min(pageSize, 30);
             pageCount = (int)Math.Ceiling((double)totalCount / pageSize);
             if (isAsc)
             {
