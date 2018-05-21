@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YQH.AppStoreRank.Web", "YQH.AppStoreRank.Web\YQH.AppStoreRank.Web.csproj", "{7F3AC655-45D9-4F7D-A2FE-E98E721FAC7A}"
 EndProject
@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YQH.AppStoreRank.Common", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YQH.AppStoreRank.WebAdmin", "YQH.AppStoreRank.WebAdmin\YQH.AppStoreRank.WebAdmin.csproj", "{84835771-9867-4608-BE37-B367DFCF598C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YQH.AppStoreRank.WinForm", "YQH.AppStoreRank.WinForm\YQH.AppStoreRank.WinForm.csproj", "{FCBFDC7F-4DC2-4933-B9FF-55A6A4CB8DE2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YQH.AppStoreRank.WebApi", "YQH.AppStoreRank.WebApi\YQH.AppStoreRank.WebApi.csproj", "{FC7C54A6-AF5C-4A72-85B8-ADFCF4751478}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,10 @@ Global
 		{84835771-9867-4608-BE37-B367DFCF598C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84835771-9867-4608-BE37-B367DFCF598C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84835771-9867-4608-BE37-B367DFCF598C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FCBFDC7F-4DC2-4933-B9FF-55A6A4CB8DE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FCBFDC7F-4DC2-4933-B9FF-55A6A4CB8DE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FCBFDC7F-4DC2-4933-B9FF-55A6A4CB8DE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FCBFDC7F-4DC2-4933-B9FF-55A6A4CB8DE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC7C54A6-AF5C-4A72-85B8-ADFCF4751478}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC7C54A6-AF5C-4A72-85B8-ADFCF4751478}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC7C54A6-AF5C-4A72-85B8-ADFCF4751478}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC7C54A6-AF5C-4A72-85B8-ADFCF4751478}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

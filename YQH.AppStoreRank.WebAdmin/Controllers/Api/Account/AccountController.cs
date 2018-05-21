@@ -7,7 +7,6 @@ using YQH.AppStoreRank.BLL.RegisterLogin.Param;
 using YQH.AppStoreRank.Data;
 using YQH.AppStoreRank.Data.Enums;
 using YQH.AppStoreRank.Data.Models;
-using YQH.AppStoreRank.WebAdmin.App_Start;
 
 namespace YQH.AppStoreRank.WebAdmin.Controllers.Api.Account
 {
