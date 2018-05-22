@@ -59,7 +59,7 @@ namespace YQH.AppStoreRank.WebApi
             config.Routes.MapHttpRoute(
                  name: "DefaultApi1",
                  routeTemplate: "{controller}/{action}/{id}",
-                 defaults: new { id = RouteParameter.Optional },
+                 defaults: new { controller = "values",action = "get", id = RouteParameter.Optional },
                  constraints: new { action = @"\D+" }
              );
 

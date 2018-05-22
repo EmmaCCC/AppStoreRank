@@ -124,6 +124,8 @@
     <Compile Include="App_Start\ValidateModelFilter.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="App_Start\WebApiExceptionFilterAttribute.cs" />
+    <Compile Include="Controllers\Product\Book\BookCompanyController.cs" />
+    <Compile Include="Controllers\User\LoginController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
