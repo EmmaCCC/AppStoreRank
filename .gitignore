@@ -5,3 +5,6 @@ log
 YQH.AppStoreRank.WinForm/
 /.vs/config/applicationhost.config
 .vs/
+bin
+obj
+
