@@ -5,8 +5,8 @@ namespace YQH.AppStoreRank.BLL.RegisterLogin
 {
     public interface IRegisterLogin
     {
-        IIdentity Login(LoginParam param);
+        IAuthIdentity Login(LoginParam param);
 
-        IIdentity Register(RegisterParam param);
+        IAuthIdentity Register(RegisterParam param);
     }
 }

@@ -12,7 +12,7 @@ namespace YQH.AppStoreRank.BLL.RegisterLogin
     {
         protected IBaseRepository dataAccess = RepositoryFactory.GetDataAccess();
 
-        public virtual IIdentity Login(LoginParam param)
+        public virtual IAuthIdentity Login(LoginParam param)
         {
             string password = DESEncrypt.MD5Encrypt(param.Password).ToLower();
             var user = dataAccess.First<Account>(u => u.UserName == param.UserName && u.Password.ToLower() == password);
@@ -27,7 +27,7 @@ namespace YQH.AppStoreRank.BLL.RegisterLogin
             return new BLL.Auth.Identity(user);
         }
 
-        public virtual IIdentity Register(RegisterParam param)
+        public virtual IAuthIdentity Register(RegisterParam param)
         {
 
             return new Identity(new AppStoreRank.Data.Models.Account());
@@ -39,7 +39,7 @@ namespace YQH.AppStoreRank.BLL.RegisterLogin
         /// 保存cookie
         /// </summary>
         /// <param name="user"></param>
-        protected void SaveCookie(IIdentity user)
+        protected void SaveCookie(IAuthIdentity user)
         {
             TokenModel token = UserAuth.GetToken(user);
             SaveCookie(user, token);
@@ -51,7 +51,7 @@ namespace YQH.AppStoreRank.BLL.RegisterLogin
         /// </summary>
         /// <param name="user"></param>
         /// <param name="token"></param>
-        protected void SaveCookie(IIdentity user, TokenModel token)
+        protected void SaveCookie(IAuthIdentity user, TokenModel token)
         {
             Data.Models.Account account = user.GetUser() as Data.Models.Account;
             //添加token到

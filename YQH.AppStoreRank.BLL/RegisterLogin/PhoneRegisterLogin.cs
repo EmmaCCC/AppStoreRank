@@ -8,11 +8,11 @@ namespace YQH.AppStoreRank.BLL.RegisterLogin
 {
     public class PhoneRegisterLogin : BaseRegisterLogin
     {
-        public override IIdentity Login(LoginParam param)
+        public override IAuthIdentity Login(LoginParam param)
         {
             try
             {
-                IIdentity user = null;
+                IAuthIdentity user = null;
 
                 if (!string.IsNullOrEmpty(param.RefreshToken))
                 {
@@ -33,7 +33,7 @@ namespace YQH.AppStoreRank.BLL.RegisterLogin
             }
         }
 
-        public override IIdentity Register(RegisterParam param)
+        public override IAuthIdentity Register(RegisterParam param)
         {
 
             throw new NotImplementedException();

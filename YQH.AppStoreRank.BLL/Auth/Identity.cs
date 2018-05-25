@@ -4,25 +4,31 @@ using YQH.AppStoreRank.Data.Models;
 
 namespace YQH.AppStoreRank.BLL.Auth
 {
-    public class Identity : IIdentity
+    public class Identity : IAuthIdentity
     {
         Account _user;
+        private Dictionary<string, object> _dic = new Dictionary<string, object>();
         public Identity(Account user)
         {
             _user = user;
+            InitData();
         }
 
         public Identity()
         {
             _user = new Account();
+            InitData();
         }
 
+        private void InitData()
+        {
+            _dic.Add("Type", _user.Type);
+            _dic.Add("UserName", _user.UserName);
+
+        }
         public IDictionary<string, object> GetTokenData()
         {
-            Dictionary<string, object> dic = new Dictionary<string, object>();
-            dic.Add("Type", _user.Type);
-            dic.Add("UserName", _user.UserName);
-            return dic;
+            return _dic;
         }
 
         public string GetName()

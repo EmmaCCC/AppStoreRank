@@ -7,7 +7,7 @@ namespace YQH.AppStoreRank.BLL.RegisterLogin
 {
     public class WebRegisterLogin : BaseRegisterLogin
     {
-        public override IIdentity Login(LoginParam param)
+        public override IAuthIdentity Login(LoginParam param)
         {
             try
             {
@@ -22,7 +22,7 @@ namespace YQH.AppStoreRank.BLL.RegisterLogin
             }
         }
 
-        public override IIdentity Register(RegisterParam param)
+        public override IAuthIdentity Register(RegisterParam param)
         {
 
             throw new NotImplementedException();

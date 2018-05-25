@@ -2,7 +2,7 @@
 
 namespace YQH.AppStoreRank.BLL.Auth
 {
-    public interface IIdentity
+    public interface IAuthIdentity
     {
         IDictionary<string, object> GetTokenData();
 

@@ -73,7 +73,7 @@ namespace YQH.AppStoreRank.BLL.Auth
         }
 
 
-        public static TokenModel GetToken(IIdentity user)
+        public static TokenModel GetToken(IAuthIdentity user)
         {
             return CreateToken(user);
         }
@@ -84,7 +84,7 @@ namespace YQH.AppStoreRank.BLL.Auth
         /// <param name="refreshToken"></param>
         /// <param name="fun"></param>
         /// <returns></returns>
-        public static TokenModel GetToken(string refreshToken, Func<string, IIdentity> fun)
+        public static TokenModel GetToken(string refreshToken, Func<string, IAuthIdentity> fun)
         {
             var dic = JWT.JsonWebToken.DecodeToObject<Dictionary<string, object>>(refreshToken, SECRETKEY);
             if (dic["auth_flag"].ToString() != "refresh")
@@ -111,7 +111,7 @@ namespace YQH.AppStoreRank.BLL.Auth
            
         }
 
-        private static TokenModel CreateToken(IIdentity user)
+        private static TokenModel CreateToken(IAuthIdentity user)
         {
             var dic = user.GetTokenData();
             dic.Add("auth_id", user.GetId());

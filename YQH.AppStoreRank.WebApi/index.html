@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $.ajax({
+        url: 'values/getfile',
+        type: 'get',
+        success:function(data) {
+            console.log(data);
+        }
+    })
+</script>
+</body>
+
+</html>
