@@ -69,7 +69,7 @@
     <Compile Include="Admin\OrderInfoBLL.cs" />
     <Compile Include="Auth\CookieStore.cs" />
     <Compile Include="Auth\Identity.cs" />
-    <Compile Include="Auth\IIdentity.cs" />
+    <Compile Include="Auth\IAuthIdentity.cs" />
     <Compile Include="Auth\TokenModel.cs" />
     <Compile Include="Auth\UserAuth.cs" />
     <Compile Include="RegisterLogin\BaseRegisterLogin.cs" />
